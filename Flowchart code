@@ -1,0 +1,27 @@
+from graphviz import Digraph
+
+# Create a Digraph object
+dot = Digraph(comment='Road Safety Enhancement Flowchart')
+
+# Define nodes
+dot.node('A', 'Assess Current Road Conditions')
+dot.node('B', 'Identify Risk Areas')
+dot.node('C', 'Implement Safety Measures')
+dot.node('D', 'Public Awareness Campaigns')
+dot.node('E', 'Install Road Signs & Signals')
+dot.node('F', 'Regular Monitoring and Maintenance')
+dot.node('G', 'Evaluate Effectiveness')
+dot.node('H', 'Revise Strategies')
+
+# Define edges
+dot.edges(['AB', 'BC'])
+dot.edge('C', 'D')
+dot.edge('C', 'E')
+dot.edge('E', 'F')
+dot.edge('F', 'G')
+dot.edge('G', 'H')
+dot.edge('H', 'B', label='If ineffective')
+
+# Render in notebook
+dot.render('road_safety_flowchart', format='png', cleanup=False)
+dot
